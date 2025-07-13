@@ -1,26 +1,27 @@
 import { timestamp } from "../timeframe";
 
-type Day = {
-  data: timestamp;
+type DayData = {
+  study: timestamp;
 };
 
-//[0, 30];
+//[1, 31];
 type Month = {
-  days: Map<number, Day>;
+  days: Map<number, DayData>;
 };
 
-//[0, 3]
+//numberは[1, 3], [4, 6], [7, 9], [10, 12]
 type Quarter = {
   months: Map<number, Month>;
 };
 
-//[0, ∞]
+//["Q1", "Q4"]
 type Year = {
-  quarters: Map<number, Quarter>;
+  quarters: Map<string, Quarter>;
 };
 
+//西暦
 type Database = {
   years: Map<number, Year>;
 };
 
-export { Day, Month, Quarter, Year, Database };
+export { DayData, Month, Quarter, Year, Database };
